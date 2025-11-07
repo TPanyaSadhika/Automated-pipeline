@@ -1,32 +1,24 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "Node16"
-    }
-
     stages {
         stage('Checkout') {
             steps {
+                echo '✅ Pulling latest code from GitHub...'
                 git branch: 'main', url: 'https://github.com/TPanyaSadhika/Automated-pipeline.git'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                bat 'npm install'
-            }
-        }
-
-        stage('Build Project') {
-            steps {
-                bat 'npm run build'
+                echo '🧱 No build needed — this is a static website.'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "✅ Build & Deployment successful!"
+                echo '🎉 Static website files are ready for deployment!'
+                echo 'You can now deploy these files to GitHub Pages or a web server.'
             }
         }
     }
