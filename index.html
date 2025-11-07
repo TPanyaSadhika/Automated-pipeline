@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body onload="showWelcomeMessage()">
+    <div class="container">
+        <h2>Employee Tax Calculator</h2>
+        <p id="welcomeMessage"></p>
+        <form id="taxForm">
+            <label>Employee ID:</label>
+            <input type="text" id="empId" onfocus="highlightField(this)" onblur="validateEmpId()" required>
+            <span class="error" id="empIdError"></span>
+            
+            <label>Full Name:</label>
+            <input type="text" id="fullName" onfocus="highlightField(this)" onblur="validateFullName()" required>
+            <span class="error" id="fullNameError"></span>
+            
+            <label>Email:</label>
+            <input type="email" id="email" onfocus="highlightField(this)" onblur="validateEmail()" required>
+            <span class="error" id="emailError"></span>
+            
+            <label>Mobile No:</label>
+            <input type="text" id="mobile" onfocus="highlightField(this)" onblur="validateMobile()" required>
+            <span class="error" id="mobileError"></span>
+            
+            <label>Year of Joining:</label>
+            <input type="number" id="year" onfocus="highlightField(this)" onblur="validateYear()" required>
+            <span class="error" id="yearError"></span>
+            
+            <label>Taxable Salary:</label>
+            <input type="number" id="salary" onfocus="highlightField(this)" onblur="validateSalary()" required>
+            <span class="error" id="salaryError"></span>
+            
+            <label>Tax Regime:</label>
+            <select id="regime">
+                <option value="old">Old</option>
+                <option value="new">New</option>
+            </select>
+            
+            <button type="button" onclick="calculateTax()">Calculate Tax</button>
+        </form>
+        
+        <div id="resultBox" class="hidden">
+            <h3>Tax Calculation Result</h3>
+            <p id="taxResult"></p>
+        </div>
+    </div>
+</body>
+</html>
